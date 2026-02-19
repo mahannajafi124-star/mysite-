@@ -1,32 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="fa">
 <head>
-  <meta charset="UTF-8">
-  <title>My Site</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      margin-top: 50px;
-      background-color: #111;
-      color: white;
-    }
-    .box {
-      background: #222;
-      padding: 20px;
-      border-radius: 10px;
-      display: inline-block;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Site</title>
+<style>
+body{
+background:#000;
+color:#fff;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+font-family:sans-serif;
+}
+.box{
+background:#222;
+padding:20px;
+border-radius:12px;
+word-break:break-all;
+text-align:center;
+}
+a{
+color:#00ffcc;
+text-decoration:none;
+}
+</style>
 </head>
 <body>
-  <div class="box">
-    <h1>متن من</h1>
-    <p id="text"></p>
-  </div>
 
-  <script>
-    fetch('data.json')
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById('text').innerText = data.message;
+<div class="box">
+در حال بارگذاری...
+</div>
+
+<script>
+fetch("data.json")
+.then(res => res.json())
+.then(data => {
+document.querySelector(".box").innerHTML =
+`<a href="${data.message}">${data.message}</a>`;
+});
+</script>
+
+</body>
+</html>
